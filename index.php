@@ -11,8 +11,8 @@
     <a href="Labs/2">Lab 2</a>
     <a href="Labs/3">Lab 3</a>
     <a href="Homeworks">Homework</a>
-    <a href="Homeworks/1">Lab 1</a>
-    <a href="Homeworks/2">Lab 2</a>
+    <a href="Homeworks/1">Homework 1</a>
+    <a href="Homeworks/2">Homework 2</a>
     </body>
 </html>
 
