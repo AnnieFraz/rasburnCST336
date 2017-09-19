@@ -1,0 +1,116 @@
+html{
+    width:100%;
+    height:100%;
+}
+body{
+    background-color:#DFF1F7;
+    color:black;
+}
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size:5em;
+    margin-bottom: 0px;
+}
+h2{
+    font-family: 'Chewy', cursive;
+    font-size:4em;
+    margin-bottom:0px;
+}
+header, main, nav, footer, link{
+        text-align:center;
+}
+nav a {
+    padding:15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: white;
+    font-family: 'Asul', sans-serif;
+}
+nav a:hover{
+    border-bottom: 2px;
+    font-size: 2em;
+    transition: .9s;
+    font-family: 'Asul', sans-serif;
+}
+#WelcomeInformation{
+    float:none !important;
+    font-size:1.3em !important;
+    font-family: 'Fredoka One', cursive !important;
+
+}
+#LogicGatesInformation{
+    float:left !important;
+    font-family: 'Patrick Hand', cursive !important;
+}
+#LifeCycleInformation{
+    float:none !important;
+    font-family: 'Rock Salt', cursive !important;
+}
+#TuringMachineInformation{
+    float:right !important;
+    font-family: 'Ribeye', cursive;
+}
+table{
+    margin:0px auto;
+}
+td {
+    padding-right: 10px;
+    font-size: 1.3em;
+    }
+tr{
+    font-family: 'Asul', sans-serif;
+}
+td strong{
+    color: white;
+}
+#table-header{
+    text-align: center;
+    background-color: #1D00C4;
+    font-family: 'Asul', sans-serif;
+}
+ul{
+    text-align: left;
+    padding-left: 200px;
+    font-family: 'Asul', sans-serif;
+}
+ol{
+    text-align:left;
+    padding-left:200px;
+    font-family: 'Asul', sans-serif;
+}
+a:link{
+    color: grey;
+    font-family: 'Asul', sans-serif;
+    }
+a:visited{
+    color:red;
+    font-family: 'Asul', sans-serif;
+}
+a:hover{
+    color:orange;
+    font-family: 'Asul', sans-serif;
+}
+p{
+    font-family: 'Asul', sans-serif;
+}
+img{
+    border-radius:8px;
+    border: 0.5px solid #ddd;
+    padding:1px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:40%;
+}
+
+footer{
+    clear:left;
+    font-family: 'Asul', sans-serif;
+    font-size: .9em;
+    
+}
+link a{
+    text-align: center;
+    
+}

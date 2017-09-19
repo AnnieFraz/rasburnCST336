@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <?php
+          $cards = array();
+          
+          $card1["suit"] = "Hearts";
+          $card1["value"] = 10; 
+          $cards[] = $card1;
+          
+          $card1["suit"] = "Hearts";
+          $card1["value"] = 9; 
+          array_push($cards, $card2);
+          
+          foreach($cards as $card){
+           foreach($card as $key => $value){
+              echo "$key = $value<br/>";
+           }
+          }
+        ?>
+
+    </body>
+</html>
