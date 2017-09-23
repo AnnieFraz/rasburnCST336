@@ -15,7 +15,6 @@
         <div id="main">
         <?php
          
-         //echo $luckyNumber. "\n";
          echo "<h2>Your lottery numbers are:</h2>";
          $luckyArray = array();
          $arraySize = 6;
@@ -30,10 +29,13 @@
                  if ($luckyArray[$j] == 7){
              echo "<p> You have the Luckiest number</p> ";
              echo "<img id='jackpot' src='img/jackpot.jpg' width='100'/>";
+                  $jackSound = "snd/jackpot.wav";
+                echo '<EMBED SRC="'.$jackSound.'" HIDDEN="TRUE" AUTOSTART="TRUE"></EMBED>';
                  }
                 elseif ($luckyArray[$j] == 22) {
                     echo "<p> 2 little ducks</p> ";
                 }
+                
                  }
         ?>
         
