@@ -17,7 +17,7 @@
           <tr>
             <td><em><strong>Homeworks</strong></em></td>
           </tr>
-         <tr><td><a href="hw1">Homework 1</a></td></tr>
+         <tr><td><a href="hw1/Main.html">Homework 1</a></td></tr>
          <tr><td><a href="hw2">Homework 2</a></td></tr>
          
          
