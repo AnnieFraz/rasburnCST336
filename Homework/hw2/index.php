@@ -24,27 +24,29 @@
              array_push($luckyArray,$luckyNumber);
               
          }
-         for($j=0; $j < sizeof($luckyArray); $j++){
-                 echo"<h2> $luckyArray[$j]\n </h2>";
-                 if ($luckyArray[$j] == 7){
-             echo "<p> You have the Luckiest number</p> ";
-             echo "<img id='jackpot' src='img/jackpot.jpg' width='100'/>";
-                  $jackSound = "snd/jackpot.wav";
-                echo '<EMBED SRC="'.$jackSound.'" HIDDEN="TRUE" AUTOSTART="TRUE"></EMBED>';
+         
+         for($j=0; $j < sizeof($luckyArray); $j++)
+         {
+            echo"<h2> $luckyArray[$j]\n </h2>";
+            if ($luckyArray[$j] == 7)
+                 {
+                    echo "<p> You have the Luckiest number</p> ";
+                    echo "<img id='jackpot' src='img/jackpot.jpg' width='100'/>";
+                    $jackSound = "snd/jackpot.wav";
+                    echo '<EMBED SRC="'.$jackSound.'" HIDDEN="TRUE" AUTOSTART="TRUE"></EMBED>';
                  }
-                elseif ($luckyArray[$j] == 22) {
+                elseif ($luckyArray[$j] == 22) 
+                {
                     echo "<p> 2 little ducks</p> ";
                 }
-                
-                 }
+        }
         ?>
-        
         
         </div>
        <footer>
-        
             <hr>
-            336: Internet Programming. 2017; Rasburn <br/>
+            <p>336: Internet Programming. 2017; Rasburn </p>
+            </br>
             <p>It is used for academic purposes only.</p>
       </footer>
 
