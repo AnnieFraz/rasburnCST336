@@ -342,7 +342,7 @@ $wordCol3 = $_POST["wordColor3"];
         
             $text = '';
             $length = strlen($message);
-            for( $i = 0; $i < $len; $i++ ) {
+            for( $i = 0; $i < $length; $i++ ) {
                 $char = substr( $message, $i, 1 );
                 $text = $text . outputLED($char);
             }
