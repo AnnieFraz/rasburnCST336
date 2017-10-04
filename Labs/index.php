@@ -18,8 +18,10 @@
             <td><em><strong>Labs</strong></em></td>
           </tr>
          <tr><td><a href="1">Lab 1</a></td></tr>
-         <tr></tr><td><a href="2">Lab 2</a></td></tr>
-         <tr></tr><td><a href="3">Lab 3</a></td></tr>
+         <tr><td><a href="2">Lab 2</a></td></tr>
+         <tr><td><a href="lab3">Lab 3</a></td></tr>
+         <tr><td><a href="4">Lab 4</a></td></tr>
+         
          
         </table>
     </body>
