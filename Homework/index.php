@@ -19,6 +19,7 @@
           </tr>
          <tr><td><a href="hw1/Main.html">Homework 1</a></td></tr>
          <tr><td><a href="hw2">Homework 2</a></td></tr>
+         <tr><td><a href="hw3">Homework 3</a></td></tr>
          
          
         </table>
