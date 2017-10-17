@@ -59,12 +59,10 @@ echo "<p> $servername, $username, $password, $dbname, $dbport</p>";
 $sql  = " SELECT * FROM `device` ORDER BY `deviceName` ASC ";
 if($_POST['sort_price'] == 'sort_price')
 {
-        $sql = "SELECT * FROM `device`  ORDER BY price ASC";     
+        $sql = "SELECT * FROM `device`  ORDER BY 'price' ASC";     
 }
 $stmt = $dbConn->prepare($sql);
-$stmt->execute(array(
-    ':id' => '1'
-));
+$stmt->execute();
 while($row=$stmt->fetch()){
     echo "<tr>
         <td>{$row['deviceType']}</td>
