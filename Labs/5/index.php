@@ -1,12 +1,11 @@
 <?php
-$servername = getenv('IP');
-$username   = 'anniefraz';
-$host       = "localhost";
-$password   = "";
-$dbname     = "tech_checkout";
-$dbport     = 3306;
+$servername = getenv('DATABASE_HOST');
+$username   = getenv('USERNAME');
+$password   = getenv('DATABASE_PASSWORD');
+$dbname     = getenv('DATABASE_NAME');;
+$dbport     = getenv('DATABASE_PORT');
 
-$dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+$dbConn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 ?>
