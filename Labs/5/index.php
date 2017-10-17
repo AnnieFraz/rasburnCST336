@@ -8,6 +8,7 @@ $dbport     = getenv('DATABASE_PORT');
 $dbConn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+echo "<p> $servername, $username, $password, $dbname, $dbport</p>";
 ?>
 <html>
         <head>
@@ -96,8 +97,6 @@ while ($row = $stmt->fetch()) {
         </tr>";
     }
 }
-
-
 ?>
        </body>
     </html>
