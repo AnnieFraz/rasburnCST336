@@ -22,6 +22,7 @@
          <tr><td><a href="lab3">Lab 3</a></td></tr>
          <tr><td><a href="4">Lab 4</a></td></tr>
          <tr><td><a href="5">Lab 5</a></td></tr>
+         <tr><td><a href="6">Lab 6</a></td></tr>
          
          
         </table>

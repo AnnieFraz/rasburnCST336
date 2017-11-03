@@ -24,6 +24,7 @@
          <tr>
             <td><a href="Labs/index.php">Labs</a></td>
             <td><a href="Homework/index.php">Homework</td>
+            <td><a href="TeamProject/index.php">Team Project</td>
          </tr>
         </table>
     </body>
