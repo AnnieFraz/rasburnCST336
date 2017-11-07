@@ -9,10 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style type="text/css">
-	body {
-		background: #222;
-		margin: 0;
-	}
+	
 	.thumbnails img {
 		height: 80px;
 		width:80px;
@@ -29,7 +26,8 @@
 	.preview img {
 		border: 4px solid #e6e6e6;
 		padding: 1px;
-		width: 800px;
+		max-width: 800px;
+		width: auto\9;
 	}
 </style>
         </head>
@@ -42,13 +40,12 @@
             <a href="index.php">Home</a>
             <a href="about.php"><strong>About</strong></a>
             <a href="events.php">Events</a>
-            <a href="committee.php">Committee</a>
             <a href="roomBooking.php">Room Booking</a>
             <a href="contact.php">Contact</a>
         </nav>
         <body>
-            <p></p>
             <h2>Our Photos</h2>
+            
             <div class="gallery" align="center"></div>
             <center>
             <div class="thumbnails">
@@ -67,15 +64,13 @@
             
         </body>
         <footer>
-            <h3>Live Music Society - University of Stirling</h3>
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <figure id ="music_notes">
-                <img src="img/musical_notes.jpg" alt="Musical Notes"/>
-            </figure>
+            <br></br>
+            <a href="https://twitter.com/SULiveMusic" style="color:white;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white;"><i class="fa fa-instagram"></i></a>
             
+            <h3>Live Music Society - University of Stirling</h3>
+            <br></br>
         </footer>
         
-    </body>
 </html>

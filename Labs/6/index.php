@@ -1,69 +1,53 @@
 <?php
-$dbHost = getenv('IP');
-        $dbPort = 3306;
-        $dbName = "lab6";
-        $username = "anniefraz";
-        $password = "";
-        
-        $dbConn = new PDO("mysql:host=$dbHost;port=$dbPort;dbname=$dbName", $username, $password);
-        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include 'connection.php';
+$conn = getDatabaseConnection();
 ?>
 <html>
         <head>
-                <title>Lab 6</title>
-                <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-                 <link href="css/styles.css" rel="stylesheet">
-
-
-    <!-- Custom styles for this template -->
+    <title>Lab 6</title>
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
         </head>
         <body>
             <center>
         <h2>Signup Form</h2>
-
-
-<form method="post">
-Username: <input type="text" name="username" placeholder="Enter Username" required> <br >
-Password: <input type="password" name="password"  placeholder="Enter Password" required><br>
-<span class="psw">Forgot <a href="#">password?</a></span><br>
-
+        <form method="POST" action="loginProcess.php">
+            Username: <input type="text" name="username" placeholder="Enter Username" required> <br >
+            Password: <input type="password" name="password1"  placeholder="Enter Password" required><br>
+            <input type="submit" value="Log in" name="LoginForm"/>
+        </form>
 <?php
-
-session_start();
-
-if (isset($_POST['loginForm'])) {  //login form has been submitted
-    //include 'connection.php';
-    
+/*
     $username = $_POST['username'];
-    $password = sha1($POST['password']);
+    $password = sha1($POST['password1']);
+    print_r($_POST);
     
-    $sql = "SELECT * FROM admin 
-            WHERE username = :username
-            AND password = :password";
-            
-            $paras= array();
-            $paras[':username'] = $username;
-            $paras[':password'] = $password;
-            
-   $statement = $connection->prepare($sql);  
-    $statement->execute($paras); 
-    $record = $statement->fetch(PDO::FETCH_ASSOC);
-}
- 
-  if (!empty($record)) { //if record with username and password was found
-        $_SESSION['username'] = $record['username'];
-        $_SESSION['adminName'] = $record['firstName'] . " " . $record['lastName'];
-        header("Location: main.php");
-    } else {
-        $errorArray = array("Wrong username/password");  
+    echo $password;
+    
+    $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
+    
+    $stmt = $conn -> prepare($sql);
+    $stmt ->execute();
+    $record = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    print_r($record);
+    
+    if (empty($record)){
+        
+        echo " <br> wrong credintials";
+    }else{
+        header("Location: adminstrator.php");;
     }
+    
+    function verifyPassword(){
+        
+    }
+    */
+
 
 ?>
 
-<form action="login.php">
-           <input type="submit" value="Log in" />
-      </form>  
 
 
 <div>

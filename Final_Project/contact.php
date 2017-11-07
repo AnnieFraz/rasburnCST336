@@ -17,7 +17,6 @@
             <a href="index.php">Home</a>
             <a href="about.php">About</a>
             <a href="events.php">Events</a>
-            <a href="committee.php">Committee</a>
             <a href="roomBooking.php">Room Booking</a>
             <a href="contact.html"><strong>Contact</strong></a>
         </nav>

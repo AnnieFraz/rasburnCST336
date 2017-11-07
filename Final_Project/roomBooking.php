@@ -16,7 +16,6 @@
             <a href="index.php">Home</a>
             <a href="about.php">About</a>
             <a href="events.php">Events</a>
-            <a href="committee.php">Committee</a>
             <a href="roomBooking.php"><strong>Room Booking</strong></strongRoom></a>
             <a href="contact.php">Contact</a>
         </nav>
@@ -37,12 +36,14 @@
             <br></br>
         </body>
         <footer>
-            <h3>Live Music Society - University of Stirling</h3>
-            <figure id ="music_notes">
-                <img src="img/musical_notes.jpg" alt="Musical Notes"/>
-            </figure>
+            <br></br>
+            <a href="https://twitter.com/SULiveMusic" style="color:white;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white;"><i class="fa fa-instagram"></i></a>
             
+            <h3>Live Music Society - University of Stirling</h3>
+            <br></br>
         </footer>
         
-    </body>
+    
 </html>

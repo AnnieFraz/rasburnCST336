@@ -1,5 +1,6 @@
-var randomNumber = Math.floor(Math.random()*99)+1;
+//Javascript Document
             //Variables
+            var randomNumber = Math.floor(Math.random()*99)+1;
             var guesses = document.querySelector('#guesses');
             var lastResult = document.querySelector('#lastResult');
             var lowOrHi = document.querySelector('#lowOrHi');

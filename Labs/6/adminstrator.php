@@ -27,22 +27,26 @@ $sql = "SELECT * FROM members";
 		
 $stmt = $dbConn->query($sql);	
 $results = $stmt->fetchAll();
-echo "<table border=1><tr><td><strong>ID</strong></td><td><Strong>First Name</strong></td><td><strong>Last Name</strong></td></tr>";
+echo "<table border=1><tr><td><Strong>First Name</strong></td><td><strong>Last Name</strong></td></tr>";
 foreach ($results as $record) {
+   // echo "</td><td>";
+	//echo $record['member_id'];
     echo "</td><td>";
-	echo $record['member_id'];
-    echo "</td><td>";
-	echo $record['member_firstName'];
-	echo "</td><td>";
-	echo $record['member_lastName'];
-	echo "</td><td>";
-	echo "<td> <form action=update.php>";
+	echo "<form action=memberInfo.php>";
           echo "<input type='hidden' name='member_id' value='".$record['member_id'] . "'/>";
-          echo "<input type='submit' value='Update'/></form> </td>";
-	echo "<td> <form action='delete.php'";
+          echo "<input type='submit' value={$record['member_firstName']} name='firstNameForm'/></form>";
+	echo "</td><td>";
+	echo "<form action=memberInfo.php>";
+          echo "<input type='hidden' name='member_id' value='".$record['member_id'] . "'/>";
+          echo "<input type='submit' value={$record['member_lastName']} name='lastNameForm'/></form>";
+	echo "</td><td>";
+	echo " <form action=update.php>";
+          echo "<input type='hidden' name='member_id' value='".$record['member_id'] . "'/>";
+          echo "<input type='submit' value='Update'/></form> ";
+	echo "<form action='delete.php'";
           echo "onsubmit=\"return confirmDelete('".$record['member_firstName']."')\">";
           echo "<input type='hidden' name='member_id' value='".$record['member_id'] . "'/>";
-          echo "<input type='submit' value='Delete' name='deleteForm'/></form> </td>";
+          echo "<input type='submit' value='Delete' name='deleteForm'/></form>";
 	echo "</td></tr>";
 }
 echo "</table>";
@@ -58,12 +62,23 @@ First Name: <input type="text" name="firstName"  placeholder="Enter First Name" 
 Last Name: <input type="text" name="lastName"  placeholder="Enter Last Name" required><br>
 Email: <input type="text" name="email"  placeholder="Enter Email" required><br>
 
+
 <input type="submit" name="loginForm" /><br>
 </form>
 
 <?php
 
 session_start();
+session_start();
+
+//print_r($_SESSION);
+
+if (!isset($_SESSION['username'])) { //if not set, it means that admin hasn't logged in
+    
+    header("Location: index.php"); //redirects users to login page
+    exit;
+    
+}
 
 
     //include 'connection.php';

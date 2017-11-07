@@ -16,16 +16,15 @@
             <a href="index.php"><strong>Home</strong></a>
             <a href="about.php">About</a>
             <a href="events.php">Events</a>
-            <a href="committee.php">Committee</a>
             <a href="roomBooking.php">Room Booking</a>
             <a href="contact.php">Contact</a>
         </nav>
         
         <br/><br />
         <main>
-            <figure id="banner">
-                <img src="img/banner.jpg" alt="Live Music Banner" class="img-responsive img-rounded"/>
-            </figure>
+            <div class="banner">
+                <img id="banner" src="img/banner.jpg" alt="Live Music Banner" class="img-responsive img-rounded" />
+            </div>
             
             <div id="welcomeText">
 <div><strong>Are you musically inclined? Keen to get involved in the Stirling live music scene? Looking for an excuse to bring your instrument to university?</strong></div>
@@ -36,12 +35,13 @@
         </main>
         
         <footer>
-            <h3>Live Music Society - University of Stirling</h3>
-            <figure id ="music_notes">
-                <img src="img/musical_notes.jpg" alt="Musical Notes"/>
-            </figure>
+            <br></br>
+            <a href="https://twitter.com/SULiveMusic" style="color:white;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white;"><i class="fa fa-instagram"></i></a>
             
+            <h3>Live Music Society - University of Stirling</h3>
+            <br></br>
         </footer>
         
-    </body>
 </html>
