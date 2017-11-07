@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Lab 4: LED Board </title>
+        <link href="css/styles.css" rel="stylesheet">
         <style>
             table {
                 display: inline-block; 
