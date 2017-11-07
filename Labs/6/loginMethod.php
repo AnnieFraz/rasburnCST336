@@ -5,11 +5,11 @@ $conn = getDatabaseConnection();
 
 $sql = "SELECT * FROM admin WHERE username LIKE :id";
 
-$uname = strtoupper($_POST['username']);
-$passw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
+$username = strtoupper($_POST['username']);
+$passw = password_hash($_POST['passwod1'], PASSWORD_DEFAULT);
 
 $stmt = $dbConn -> prepare ($sql);
-$stmt -> execute (  array ( ':id' => $uname)  );
+$stmt -> execute (  array ( ':id' => $username)  );
 
 //var_dump($passw);
 while ($row = $stmt -> fetch())  {
@@ -18,11 +18,11 @@ while ($row = $stmt -> fetch())  {
     $temp = $row['username'];
 }
 
-if(password_verify( $_POST['pw'] , $hash ))
+if(password_verify( $_POST['password1'] , $hash ))
 {
     $_SESSION['user'] = $temp;
     //var_dump($_session['user']);
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();
 }
 

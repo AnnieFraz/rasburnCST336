@@ -11,7 +11,7 @@ $conn = getDatabaseConnection();
 
 
 $username = $_POST['username'];
-$password = sha1($_POST['password']);
+$password = $_POST['password'];
 
         
 $sql = "SELECT *
@@ -39,7 +39,7 @@ if (empty($record)) {
     $_SESSION['adminFullName'] = $record['firstName'] . " " . $record['lastName'];
    // echo $_SESSION['adminFullName'];
    //echo "Successful login!";
-   header('Location: admin.php'); //redirects users to admin page
+   header('Location: adminstrator.php'); //redirects users to admin page
    
 }
 
