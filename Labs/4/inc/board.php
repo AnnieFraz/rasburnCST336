@@ -2,110 +2,7 @@
 <html>
     <head>
       <?php
-             $letters["0"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(1,1,0,0,0,0,0,1),
-                array(1,0,1,0,0,0,0,1),
-                array(1,0,0,1,0,0,0,1),
-                array(1,0,0,0,1,0,0,1),
-                array(1,0,0,0,0,1,0,1),
-                array(1,0,0,0,0,0,1,1),
-                array(1,1,1,1,1,1,1,1)
-            );
-            $letters["1"] =array(
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0),
-                array(0,0,0,0,1,0,0,0)
-            );
-            $letters["2"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,0),
-                array(1,1,1,1,1,1,1,1)
-            );
-            $letters["3"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1)
-            );
-            $letters["4"] =array(
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1)
-            );
-            $letters["5"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,0),
-                array(1,0,0,0,0,0,0,0),
-                array(1,0,0,0,0,0,0,0),
-                array(1,0,0,0,0,0,0,0),
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1)
-            );
-            $letters["6"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,0),
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1)
-            );
-            $letters["7"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1)
-            );
-            $letters["8"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,1),
-                array(0,1,1,1,1,1,1,0),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1)
-            );
             
-            $letters["9"] =array(
-                array(1,1,1,1,1,1,1,1),
-                array(1,0,0,0,0,0,0,1),
-                array(1,1,1,1,1,1,1,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1),
-                array(0,0,0,0,0,0,0,1)
-            );
-         
-            
-            //Defining letters
             $letters["A"] =array(
                 array(1,1,1,1,1,1,1,1),
                 array(1,0,0,0,0,0,0,1),
@@ -388,7 +285,7 @@
             }
             function drawMessage($Message, $colour){
                 $Message = strtoupper($Message);
-                $validchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ! 0123456789";
+                $validchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 if(strspn($Message, $validchars) != strlen($Message) || strlen($Message) > 16){
                     echo "Invalid input";
                 }
