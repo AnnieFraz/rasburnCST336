@@ -11,7 +11,7 @@ $conn = getDatabaseConnection();
 
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = $_POST['password1'];
 
         
 $sql = "SELECT *

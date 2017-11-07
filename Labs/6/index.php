@@ -13,8 +13,8 @@ $conn = getDatabaseConnection();
             <center>
         <h2>Signup Form</h2>
         <form method="POST" action="loginProcess.php">
-            Username: <input type="text" name="username" placeholder="Enter Username" required> <br >
-            Password: <input type="password" name="password1"  placeholder="Enter Password" required><br>
+            Username: <input type="text" name="username" placeholder="Enter Username" required /> <br >
+            Password: <input type="password" name="password1"  placeholder="Enter Password" required /><br>
             <input type="submit" value="Log in" name="LoginForm"/>
         </form>
 <?php
