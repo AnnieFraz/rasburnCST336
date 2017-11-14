@@ -22,15 +22,15 @@
         <body>
             <br></br>
             <br></br>
-            <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
+            <form id='login' action='inc/login.php' method='POST' accept-charset='UTF-8'>
                 <fieldset>
                     <legend>Login</legend>
                     <input type='hidden' name='submitted' id='submitted' value='1'/>
                     <label for='username'>Username*:</label>
-                    <input type="text" name='username' id='username' maxLength="50"/>
+                    <input type="text" name='username' id='username' maxLength="50" required/>
                     <br></br>
                     <label for='password'>Password*:</label>
-                    <input type="text" name='password' id='password' maxLength="50"/>
+                    <input type="text" name='password' id='password' maxLength="50" required/>
                     <input type='submit' name='Submit' value='Submit'/>                </fieldset>
             </form>
             <br></br>

@@ -1,47 +1,46 @@
 <?php
-function login()
-{
-    if(empty($_POST['username']))
-    {
-        $this->HandleError("UserName is empty!");
-        return false;
-    }
-    if (empty($_POST['password']))
-    {
-        $this->HandleError("Password in emoty!");
-        return false;
-    }
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+session_start(); //starts or resumes an existing session
+
+
+//print_r($_POST); //displays values passed from login form
+
+//validates the username and password
+
+include 'dbConfig.php';
+$conn = getDatabaseConnection();
+
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+        
+$sql = "SELECT *
+        FROM admin
+        WHERE admin_username = :username 
+        AND   admin_password = :password";   
+
+$namedParameters  = array();
+$namedParameters[':username']  = $username;
+$namedParameters[':password']  = $password;
+
+$stmt = $conn->prepare($sql);
+$stmt->execute($namedParameters);
+$record = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//print_r($record);
+
+if (empty($record)) {
     
-    if(!$this->CheckLoginInDB($username,$password))
-    {
-        return false;
-    }
-    session_start();
+  echo "Wrong credentials!";  
+  
+} else {
     
-    $_SESSION[$this->GetLoginSessionVar()] = $username;
-    
-    return true;
+   echo "correct credentials";
+   
 }
 
-function CheckLoginInDB($username, $password)
-{
-    if (!$this->DBLogin())
-    {
-        $this->HandleError("Database login failed!");
-        return false;
-    }
-    $username=$this->SanitizeForSQL($username);
-    $pwdmd5 = md5($password);
-    $qry="SELECT name, email from $this->tablename ". "WHERE username='$username' and password='$pwdmd5'"."and conformcode='y'";
-    
-    $result = mysql_query($qry, $this->connection);
-    
-    if (!$result||mysql_num_rows($result)<=0)
-    {
-        $this->HandleError("Error Logging in. ". "The username or password does not match");
-        return false;
-    }
-    return true;
-}
+
+
+
+
+?>

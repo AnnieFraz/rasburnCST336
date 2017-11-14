@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hard JS</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            console.log("Running")
+        
+            // Declare a variable
+            var firstName;
+            firstName = "Anna";
+            
+            console.log("First Name", firstName)
+        
+            // Initialize a variable (a string)
+            var lastName = "Rasburn";
+            
+            // Initialize a Date
+            var now = new Date()
+            
+            // Initialize a number
+            var age = 20
+            
+            // Initialize a real
+            var grade = 45.87
+            
+            // ARRAYS
+            var students = []
+            var classes = new Array()
+            
+            // Add to array
+            students.push("Edith")
+            students.push("Mathew")
+            //classes[] = "336"
+
+            console.log("Students", students)
+            
+            // Delete from array
+            // Start at 0, Delete 2
+            students.splice(0, 2)
+            
+            console.log("Students (After Delete)", students)
+
+            // Insert into array
+            // Start at 0, Delete 0, insert "Billy"
+            students.splice(0, 0, "Billy", "Sally")
+            
+            console.log("Students (After Insert)", students)
+            
+            // FUNCTIONS
+            
+            print("Working", null)
+            
+            function print(arg1, arg2, arg3) {
+                console.log("Printing", arg1, arg2, arg3)
+            }
+            
+            var printer = function() {
+                console.log("print this!")
+            }
+            
+            printer()
+            
+            //OBJECT 
+            //[brackets] - array
+            //{braces} - object - similar to associative array, there are pairs
+            //associative array syntax of an object
+            var student = {
+                "name":"anna",
+                "seat":"3",
+                "year": 1,
+                "register":function(c) {
+                    console.log("registered")
+                }
+            }
+            
+            student.register();
+            
+            console.log(student);
+            
+            
+            
+            // "Static functions", i.e. prototype
+            
+        </script>
+    </body>
+</html>

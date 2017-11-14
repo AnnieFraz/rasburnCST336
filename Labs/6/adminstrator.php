@@ -1,12 +1,6 @@
 <?php
-$servername = getenv('DATABASE_HOST');
-$username   = getenv('USERNAME');
-$password   = getenv('DATABASE_PASSWORD');
-$dbname     = getenv('DATABASE_NAME');;
-$dbport     = getenv('DATABASE_PORT');
-        
-        $dbConn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include 'connection.php';
+ $conn = getDatabaseConnection();
 ?>
 <html>
         <head>
@@ -25,7 +19,7 @@ $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 <?php
 $sql = "SELECT * FROM members";
 		
-$stmt = $dbConn->query($sql);	
+$stmt = $conn->query($sql);	
 $results = $stmt->fetchAll();
 echo "<table border=1><tr><td><Strong>First Name</strong></td><td><strong>Last Name</strong></td></tr>";
 foreach ($results as $record) {
