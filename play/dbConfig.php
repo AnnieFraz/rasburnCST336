@@ -1,19 +1,17 @@
 <?php
-function getDatabaseConnection() {
-    $dbHost = getenv('IP');
-        $dbPort = 3306;
-        $dbName = "final_project";
-        $username = "anniefraz";
-        $password = "";
-        
-        $dbConn = new PDO("mysql:host=$dbHost;port=$dbPort;dbname=$dbName", $username, $password);
-        $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    return $dbConn; 
+//db details
+$dbHost = getenv('IP');
+$dbUsername = 'anniefraz';
+$dbPassword = '';
+$dbName = 'final_project';
+//Connect and select the database
+
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
-
-
-
-
-
 ?>
+
+
+
+

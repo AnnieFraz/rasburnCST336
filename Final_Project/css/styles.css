@@ -63,9 +63,9 @@ p{
 #content{
     text-align: center;
 }
-#welcomeText{
-    left:50px;
-    right:50px;
+.welcomeText{
+    left:100px;
+    right:100px;
 }
 .banner img{
     max-width: 100%;
@@ -75,7 +75,7 @@ p{
 }
 .fa{
     padding: 20px;
-    font-size: 50px;
+    font-size: 100px;
     width: 50px;
     text-align: center;
     text-decoration: none;

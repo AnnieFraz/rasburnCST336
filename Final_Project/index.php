@@ -34,11 +34,13 @@
 <p>Join our society and we will work with you to create a space for all musicians at the University of Stirling to come together and create music!</p>
         </main>
         
+        </body>
+        
         <footer>
             <br></br>
-            <a href="https://twitter.com/SULiveMusic" style="color:white;"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white;"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white;"><i class="fa fa-instagram"></i></a>
+            <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white; font-size:25px;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white; font-size:25px;"><i class="fa fa-instagram"></i></a>
             
             <h3>Live Music Society - University of Stirling</h3>
             <br></br>

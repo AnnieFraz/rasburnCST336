@@ -8,7 +8,8 @@ include_once('inc/calendar.php');
         <title>SU Live Music Society</title>
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
-        <script src="jquery.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         </head>
     <body>
         <header>
@@ -166,12 +167,20 @@ body {font-family: Verdana, sans-serif;}
   <li>31</li>
 </ul>
     </div>
+    <?php
+    include_once('inc/calendar.php');
+    ?>
+    <div id="calendar_div">
+        <?php
+        echo getCalender();
+        ?>
+    </div>
         </body>
         <footer>
             <br></br>
-            <a href="https://twitter.com/SULiveMusic" style="color:white;"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white;"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white;"><i class="fa fa-instagram"></i></a>
+            <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white; font-size:25px;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white; font-size:25px;"><i class="fa fa-instagram"></i></a>
             
             <h3>Live Music Society - University of Stirling</h3>
             <br></br>

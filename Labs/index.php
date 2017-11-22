@@ -23,6 +23,9 @@
          <tr><td><a href="4">Lab 4</a></td></tr>
          <tr><td><a href="5">Lab 5</a></td></tr>
          <tr><td><a href="6">Lab 6</a></td></tr>
+         <tr><td><a href="7">Lab 7</a></td></tr>
+         <tr><td><a href="8">Lab 8</a></td></tr>
+         <tr><td><a href="9">Lab 9</a></td></tr>
          
          
         </table>

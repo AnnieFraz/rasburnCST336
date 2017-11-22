@@ -1,0 +1,353 @@
+ $("#zipCode").keyup(  function(){ 
+             //alert(  $("#zipCode").val()      );
+             if($("#zipCode").val().length>4)
+         	{
+              $.ajax({
+            
+             url: "http://hosting.otterlabs.org/laramiguel/ajax/zip.php?zip_code=93955",
+             type: "GET",
+        dataType: "json",
+        
+              });
+              }
+              });
+        /*
+            data: { "zip_code": $("#zipCode").val() },
+            success: function(data,status) {
+                 //alert(data["city"]);
+                 $("#city").html(data["city"]);
+              },
+              complete: function(data,status) { //optional, used for debugging purposes
+                  //alert(status);
+              }
+         });
+         }
+         } ); */
+         
+         $("#state").change( function(){
+              $.ajax({
+            type: "get",
+             url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php?state=ca",
+        dataType: "json",
+            data: { "state": $("#state").val() },
+            success: function(data,status) {
+                 //alert(data["counties"]);
+                 
+                 $("#county").html("<option> Select One </option>");
+                 for (var i=0; i< data['counties'].length; i++){
+                     $("#county").append("<option>" + data["counties"][i].county + "</option>" );
+                }
+              },
+              complete: function(data,status) { //optional, used for debugging purposes
+                  //alert(status);
+              }
+         });
+             });
+             
+             $("#username").change( function(){
+             	
+                $.ajax({
+              type: "POST",
+               url: "",
+              dataType: "json",
+              data: { "username": $("#username").val() },
+              success: function(data,status) {
+                 
+              //alert(data['exists']);
+               if (data['exists'] == "true")  {
+                 $("#checkUsername").html("Username already taken!");
+                 $("#checkUsername").css("color","red");
+                 $("#username").css("background-color","red");
+                 $("#username").focus();
+               } else {
+                   
+                  $("#checkUsername").html("Username available!");
+                  $("#checkUsername").css("color","");
+                  $("#username").css("background-color","green");                    
+                   
+               }
+              },
+              complete: function(data,status) { //optional, used for debugging purposes
+                  //alert(status);
+              }
+         });  
+             }); 
+             
+             
+ //NEW EXAMPLE
+ <!DOCTYPE html>
+<html>
+    <head>
+         <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional bootstrap theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <h1> Registration Form</h1>
+        <form method="POST">
+            First Name: <input type ="text" name="firstName" required/><br>
+            Last Name: <input type ="text" name="lastName" required/><br>
+            Email: <input type ="text" name="email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required title="Please include a @"/><br>
+            Zip Code: <input type ="text" name="zipCode" id="zipCode" size="5" pattern="{5,5}" required title = "Must be 5 characters"/><br>
+            Phone: <input type ="text" name="phone" id="phone" size="15" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" required title = "Must have 10 numbers"/><br>
+            <br>
+            State: <input type="text" id="state" onchange="getCountyList()">>
+            <select id="state1" >
+            <option value=""> Select One </option>
+            <option value="AZ"> Arizona </option>
+            <option value="CA"> California </option>
+            <option value="IL"> Illinois</option>
+            <option value="TX"> Texas </option>
+        </select><br /><br />
+        
+        Username: (test: username_taken)  <input type="text" id="username" name="username" required/>  
+        <span id="checkUsername"> </span>
+        <br /><br />
+        Password: <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required title="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit."/><br /><br />
+        <input type="submit" id="submit" value="Sign up!" />
+        </form>
+        <div class="container">
+            <h1>County<span></span></h1>
+            <div class="table-responsive">
+                <table id="results" class="table table-hover">
+                    <thead>
+                        <th>County</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Standings as of <span></span></h1>
+            <div class="table-responsive">
+                <table id="results1" class="table table-hover">
+                    <thead>
+                        <th>City</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script>
+        console.log("zip"+zipCode);
+        console.log("zip"+state);
+           $(function(){
+               $.ajax({
+                  url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php?state="+$("#state"),
+                  
+                   
+                   //url:"state.php",
+                   type:"GET",
+                   dataType:"json",
+               })
+               .done(function(data){
+                   console.log($("#state"))
+                   console.log("country:", data.counties);
+                   if (!data || data.length == 0) return;
+                   for (var i in data.counties) {
+                            var item = data.counties[i];
+                            console.log("lol", item.county)
+
+                            $('#results > tbody')
+                                .append($('<tr>')
+                                    .append($('<td>')
+                                        .html(item.county)
+                                        )
+                                        );
+                        }
+               })
+               function getCountyList() {        
+   var stateSelected = document.getElementById("state").value; 
+   var url = "http://hosting.csumb.edu/laramiguel/ajax/countyList.php?state="; 
+  
+   var ajax;
+    if (window.XMLHttpRequest) {
+         ajax= new XMLHttpRequest();
+     }
+ 
+   ajax.open("GET", url + stateSelected, true);
+   ajax.send();
+                
+     ajax.onreadystatechange=function() {
+          if (ajax.readyState==4 && ajax.status==200) {
+                alert(ajax.responseText);  //displays value retrieved from PHP program
+           } 
+      }  
+  
+}
+               $.ajax({
+                   
+                   url: "https://hosting.otterlabs.org/laramiguel/ajax/zip.php?zip_code="+$("#zipCode"),
+                   //url: "zip.php",
+                   type:"GET",
+                   dataType:"json",
+                })
+                .done(function(data){
+                    console.log($("#zipCode"))
+                    console.log("city", data.city);
+                    console.log("latitude", data.latitude);
+                    console.log("longitude", data.longitude);
+                    $('#results1 > tbody')
+                                .append($('<tr>')
+                                    .append($('<td>')
+                                        .html(data.city)
+                                        )
+                                    .append($('<td>')
+                                        .html(data.latitude)
+                                        )
+                                        .append($('<td>')
+                                        .html(data.longitude)
+                                        )
+                            );
+                })
+           });
+      
+        </script>
+
+    </body>
+</html>
+
+
+ <script>
+        function getCountyList() {
+            var stateSelected = document.getElementById("state").value;
+            var url = "http://hosting.csumb.edu/laramiguel/ajax/countyList.php?state=";
+
+            var ajax;
+            if (window.XMLHttpRequest) {
+                ajax = new XMLHttpRequest();
+            }
+
+            ajax.open("GET", url + stateSelected, true);
+            ajax.send();
+
+            ajax.onreadystatechange = function() {
+                if (ajax.readyState == 4 && ajax.status == 200) {
+                    //alert(ajax.responseText);  //displays value retrieved from PHP program
+
+                    var data = JSON.parse(ajax.responseText);
+                    console.log(data);
+                    var countySelected = document.getElementById("county");
+                    countySelected.innerHTML = "<option> Select One </option>";
+
+                    for (var i = 0; i < data['counties'].length; i++) {
+                        countySelected.innerHTML += "<option>" + data["counties"][i].county + "</option>";
+                    } //endFor
+
+                } //endIf 
+            }
+
+
+        } //end Function
+        function getZipCode() {
+            var zipSelected = document.getElementById("zipCode").value;
+            var url = "http://hosting.otterlabs.org/laramiguel/ajax/zip.php?zip_code=";
+
+            var ajax;
+            if (window.XMLHttpRequest) {
+                ajax = new XMLHttpRequest();
+            }
+
+            ajax.open("GET", url + zipSelected, true);
+            ajax.send();
+
+            ajax.onreadystatechange = function() {
+                if (ajax.readyState == 4 && ajax.status == 200) {
+                    //alert(ajax.responseText);  //displays value retrieved from PHP program
+
+                    var data = JSON.parse(ajax.responseText);
+                    console.log(data);
+
+                    $('#results1 > tbody')
+                        .append($('<tr>')
+                            .append($('<td>')
+                                .html(data.city)
+                            )
+                            .append($('<td>')
+                                .html(data.latitude)
+                            )
+                            .append($('<td>')
+                                .html(data.longitude)
+                            )
+                        );
+
+                } //endIf 
+            }
+
+
+        } //end Function
+        $("#username").change( function(){
+     //alert($(this).val()); //showing the username entered, for testing purposes
+ $.ajax({
+            type: "GET",
+            url: "useLookup.php",
+            data: { "username": $(this).val()},
+            success: function(data,status) {
+                 alert(data); //displaying data received, for testing purposes
+            }
+        });
+        success: function(data, status) {
+            if (data == "Available") {
+                $("#usernameValidation").html("Available!");
+                $("#usernameValidation").css("color", "green");
+            }
+            else {
+                $("#usernameValidation").html("Username already taken!");
+                $("#usernameValidation").css("color", "red");
+            }
+        }
+});
+
+          
+
+
+        /*
+        function getCountyList_jQuery() {        
+              $.ajax({
+                    type: "get",
+                    url: "http://hosting.csumb.edu/laramiguel/ajax/countyList.php",
+                    dataType: "json",
+                    data: { "state": $("#state").val() },
+                    success: function(data,status) {
+                         $("#county").html("<option> Select One </option>");
+                         for (var i=0; i< data['counties'].length; i++){
+                             $("#county").append("<option>" + data["counties"][i].county + "</option>" );
+                        }
+                      },
+                      complete: function(data,status) { //optional, used for debugging purposes
+                          //alert(status);
+                      }
+                 });
+        } */
+    </script>
+    
+<body>
+    <form method="POST">
+        First Name: <input type="text" name="firstName" required/><br> Last Name: <input type="text" name="lastName" required/><br> Email: <input type="text" name="email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required title="Please include a @"
+        /><br> Phone: <input type="text" name="phone" id="phone" size="15" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" required title="Must have 10 numbers" /><br>
+        <br> Zip Code: <input type="text" name="zipCode" id="zipCode" onchange="getZipCode()" size="5" pattern="{5,5}" required title="Must be 5 characters" /><br> State: <input type="text" id="state" onchange="getCountyList()"><br /> County:
+        <select
+            id="county"></select><br>
+            <br> Username: <input type="text" id="username" onchange="success()" /><br> Password: <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required title="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit."
+            /><br /><br />
+            <span style="color:red" id="usernameValidation"></span> <br />
+
+            <input type="submit" id="submit" value="Sign up!" />
+
+    </form>
+
+   
+
+</body>

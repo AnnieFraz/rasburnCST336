@@ -26,11 +26,13 @@
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScjgQPbCYATlwWFXUHaLjahgKy9qlNxlGNjDN4YNJV5AQVzMQ/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
             </div>
         <footer>
-            <h3>Live Music Society - University of Stirling</h3>
-            <figure id ="music_notes">
-                <img src="img/musical_notes.jpg" alt="Musical Notes"/>
-            </figure>
+            <br></br>
+            <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white; font-size:25px;"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white; font-size:25px;"><i class="fa fa-instagram"></i></a>
             
+            <h3>Live Music Society - University of Stirling</h3>
+            <br></br>
         </footer>
     </body>
 </html>
