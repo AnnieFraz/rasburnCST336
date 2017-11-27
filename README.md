@@ -1,3 +1,7 @@
+###Notes on Labs###
+Lab 6 and 7: The database does not work on heroku
+Lab 7: In order to work the protocol viewing should be http not https
+
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
