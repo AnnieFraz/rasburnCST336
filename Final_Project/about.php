@@ -3,6 +3,7 @@
 <html>
 <head>
         <meta charset="utf-8"/>
+        <link rel="shortcut icon" href="img/logo.jpg" type="image/png">
         <title>SU Live Music Society</title>
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         

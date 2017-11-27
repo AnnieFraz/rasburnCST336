@@ -29,111 +29,151 @@
             <br>
             Longitude: <span id="long"></span>
             <br><br>
-            State: 
-            <select id="state">
-                <option>--- Select One ---</option>
-                <option value="ak">Alaska </option>
-                <option value="az">Arizona </option>
-                <option value="ca">California </option>
-                <option value="hi">Hawaii </option>
-            </select><br>
-            Select a County: <select></select><br>
-            
+            State: <select id="stateId" name="state">
+                <option value="">Select One</option>
+                <option value="ca"> California</option>
+                <option value="ny"> New York</option>
+                <option value="tx"> Texas</option>
+                <option value="va"> Virginia</option>
+
+            </select><br />
+            Select a County: <select id = "countyId"></select><br>
             Desired Username: <input type="text" id="username" ><br>
             Password: <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required title="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit."
+            <input type="password" placeholder="Confirm Password" id="confirm_password" required>
+            
             
             Type Password Again: <input type="password"><br>
             <input type="submit" value="Sign up!">
         </fieldset>
     </form>
-    <script>
-        function getCity() {
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
 
-            console.log($("#zip").val());
-            $.ajax({
+function password(){
+var password = document.getElementById("password")
+var confirm_password = document.getElementById("confirm_password");
 
-                type: "GET",
-                url: "https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php",
-                dataType: "json",
-                data: { "zip": $("#zip").val() },
-                success: function(data, status) {
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
 
-                    //alert(data.city);
-                    $("#city").html(data.city);
-                    console.log(data.city);
-                    $("#lat").html(data.latitude);
-                    $("#long").html(data.longitude);
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+}
 
-                },
-                complete: function(data, status) { //optional, used for debugging purposes
-                    alert(status);
-                    console.log(status);
-                }
- 
-            }); //ajax
-           
+    function getCity() {
+        
+        //alert($("#zip").val());
+        $.ajax({
 
-        } 
-        //getCity()
+            type: "GET",
+            //url:"/Labs/7/lol.json",
+            url:"http://hosting.otterlabs.org/laramiguel/ajax/zip.php?zip_code=",
+            //url: "https://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php",
+            dataType: "json",
+            data: { "zip_code": $("#zip").val()},
+            success: function(data,status) {
+              console.log("help"+data);
+              console.log(data.city);
+              $("#city").html(data.city);
+              $("#lat").html(data.latitude);
+              $("#long").html(data.longitude);
+            
+            },
+            complete: function(data,status) { //optional, used for debugging purposes
+            console.log(status);
+            }
 
-        function getCounties() {
-            // alert($("#state").val());
-            $.ajax({
-
-                type: "GET",
-                url: "https://itcdland.csumb.edu/~milara/ajax/countyList.php",
-                dataType: "json",
-                data: { "state": $("#state").val() },
-                success: function(data, status) {
-                    $('#county').html("<option> Select one </option>");
-                    for (i = 0; i < data.length; i++) {
-                        $("#county").append("<option>" + data[i].county + "</option>")
-                    } console.log(data[0].county);
-
-                },
-                complete: function(data, status) { 
-                    alert(status);
-                }
-
-            }); //ajax
+        });//ajax
+        
+    }  //function
+     
+    
+    
+    function getCounties() {
+        
+        //alert("You've selected state: " + $("#stateId").val());
+        var stateSelected = $("#stateId").val();
+        $.ajax({
+        
+        type: "GET",
+       // url:"/Labs/7/state.php",
+        url: "http://hosting.otterlabs.org/laramiguel/ajax/countyList.php?state=",
+        dataType: "json",
+        data: { "state": $("#stateId").val()},
+        //ajax.open(url+stateSelected)
+        success: function(data,status) {
+            console.log(data);
+            var lol2 = data.counties[1].county;
+             console.log("lol" +lol2);
+            
+         //alert(data[0].county)
+         $("#countyId").html("<option> Select One </option>");
+         for (var i=0; i < 59; i++){
+             var lol = data.counties[i].county;
+             console.log("lol2" +lol);
+         $("#countyId").append("<option>"+lol+"</option>");
+         }
+        },
+        complete: function(data,status) { //optional, used for debugging purposes
+        //alert(status);
         }
+        
+        });//ajax
+    }
+    
+    function checkUsername() {
+        //alert("hello")
+        $.ajax({
 
-        function checkUsername() {
-            console.log("lol")
-            alert($("#username").val());
-            $.ajax({
-
-                type: "GET",
-                url: "checkUsernameAPI.php",
-                dataType: "json",
-                data: { "username":$("#username").val() },
-                success: function(data, status) {
-                    //alert(data);
-                    
-                    if (data == false ) {
-                        alert("username available");
-                    } else {
-                        alert("username NOT available!");
-                    }
-                     
-
-                },
-                complete: function(data, status) { //optional, used for debugging purposes
-                    //alert(status);
-                }
-
-            }); //ajax
-        }
-
-        $(document).ready(function() {
-
-            $("#zip").change(function() { getCity() });
-            $("#state").change(function() { getCounties() });
-            $("#username").change(function() { checkUsername() });
-        }); //document.ready
-    </script>
-
-
-
-
-</body></html>
+            type: "GET",
+            url: "checkUsernameAPI.php",
+            dataType: "json",
+            data: { "username": $("#username").val()},
+            success: function(data,status) {
+               //alert(data);
+               
+               if (data['exists'] == "true")  {
+                 $("#checkUsername").html("Username already taken!");
+                 $("#checkUsername").css("color","red");
+                 $("#username").css("background-color","red");
+                 $("#username").focus();
+               } else {
+                   
+                  $("#checkUsername").html("Username available!");
+                  $("#checkUsername").css("color","");
+                  $("#username").css("background-color","green");                    
+                   
+               }
+            
+            },
+            complete: function(data,status) { //optional, used for debugging purposes
+            //alert(status);
+            }
+            
+            });//ajax
+    }
+    
+    //event handlers
+    
+    $(document).ready(  function(){
+        
+        $("#zip").change( function(){
+           // alert($("#zipcode").val());
+            getCity(); 
+            
+            });
+        $("#stateId").change(function(){getCounties(); });
+        $("#username").change( function(){ checkUsername(); });
+        
+    } ); //documentReady
+    
+    
+</script>
+</body>
+</html>

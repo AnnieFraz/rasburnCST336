@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        State: <input type="text" id="state" onchange="test()"><br />  
+County: <select id="county"></select>
+
+       <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+ 
+        <script >
+        function test(){
+            $.ajax({
+                        // The URL for the request
+                        url: "/Labs/7/lol.json",
+                        //url: "https://erikberg.com/mlb/standings.json",
+
+                        // Whether this is a POST or GET request
+                        type: "GET",
+
+                        // The type of data we expect back
+                        dataType: "json",
+
+                        //jsonpCallback: 'callback',
+                    })
+                    // Code to run if the request succeeds (is done);
+                    // The response is passed to the function
+                    .done(function(data) {
+                        console.log("Data:", data);
+                    });
+        }
+        
+       
+</script>
+
+
+    </body>
+</html>

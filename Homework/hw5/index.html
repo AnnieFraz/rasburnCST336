@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>AJAX Call</title>
+        <title>Dogs</title>
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <style>
     img{
-        width:200;
+        width:200px;
     }
 </style>
         
@@ -20,20 +20,15 @@
     <body>
         <div class="container">
             <h1>Homework 5: dogs<span></span></h1>
-            <select id="breed">
-                <option>--- Select One ---</option>
-                <option value="hound">Hound </option>
-            </select>
-            <select id="subBreed">
-                <option>--- Select One ---</option>
-                <option value="Ibizan">Ibizan </option>
-                <option value="afghan">afghan </option>
-                <option value="basset">basset </option>
-                <option value="blood">blood </option>
-                <option value="english">english </option>
-                <option value="walker">walker </option>
-            </select>
-            <input type="submit" value="Sign up!">
+            <div class="breed-image">
+    
+                </div>
+
+            Select a Breed: <select id = "breedId"></select><br>
+            <a href="javascript:void(0);" class="button">Breed</a>
+            Select a Sub Breed (please note not all breeds have subreeds): <select id = "subBreedId"></select><br>
+            <a href="javascript:void(0);" class="button2">Get another one</a>
+
             <div class="table-responsive">
                 <table id="results" class="table table-hover">
                     <thead>
@@ -57,6 +52,99 @@
 
         <!-- DEMO CODE -->
         <script>
+        getBreed();
+        function getBreed() {
+        
+        //alert("You've selected state: " + $("#stateId").val());
+        $.ajax({
+        
+        type: "GET",
+        url: "https://dog.ceo/api/breeds/list",
+        dataType: "json",
+        //data: { "dogBreed": $("#breed").val()},
+        })
+        .done(function(data) {
+         console.log("lol" + data.message[2])
+         $("#breedId").html("<option> Select One </option>");
+         for (var i in data.message){
+             console.log("breed "+data[1]);
+             var dog = data[i];
+             console.log("breed " +data.message[i]);
+         $("#breedId").append("<option>"+data.message[i]+"</option>");
+         }
+        //
+        var select1 = $("#breedId").val();
+        getSubBreed(select1);
+        });//ajax
+    }
+    /*
+    function getBreedImage(){
+        
+    }*/
+    function getSubBreed(select1){
+        var lol = select1;
+        var select2 = $("#breedId").val();
+        console.log("lol2" +lol);
+        console.log("slect " +select2);
+        $.ajax({
+            type: "GET",
+        
+        dataType: "json",
+        //data: { "dogBreed": $("#breed").val()},
+        url: "https://dog.ceo/api/breed/"+select2+"/list",
+        })
+        .done(function(data) {
+         console.log("lol" + data.message[2])
+         $("#subBreedId").html("<option> Select One </option>");
+         for (var i in data.message){
+             //console.log("sub breed "+data[1]);
+             var dog = data[i];
+             console.log("sub breed " + data.message[i]);
+         $("#subBreedId").append("<option>"+data.message[i]+"</option>");
+         }
+        });
+    
+   
+    }
+    function getDogs(){
+                $.getJSON( "https://dog.ceo/api/breeds/image/random", function( result ) {
+                    $(".breed-image").html("<img src='" + result.message + "'>");
+                });
+            }
+
+            $(".button").click(function(){
+                getDogs();
+                getBreed();
+                console.log("select" + $("#subBreed").val())
+                console.log("select" + $("#breedId").val())
+                //getSubBreed();
+            });
+            /*
+            $(".button").click(function(){
+                //getDogs();
+                var select1 = $("#breedId").val();
+                getSubBreed(select1);
+                console.log("select" + $("#subBreed").val())
+                console.log("select" + $("#breedId").val())
+                //getSubBreed();
+            });*/
+
+    /*
+    function getDogs(){
+        $.ajax({
+      url: "https://dog.ceo/api/breeds/image/random",
+      dataType: 'json',
+     // data: data,
+      success: callback
+      .append($(".breed-image").html("<img src='" + message + "'>"))
+    });
+                
+                    }
+                    $(".button").click(function(){
+
+                    getDogs();
+                    });
+                    */
             // Document Ready: 
             // $(function() {
 
@@ -64,7 +152,10 @@
             var lol = $("#subBreed").val();
 
             $(function() {
-                console.log($("#subBreed").val()),
+                var lol2 = "english";
+                var lol3 = "hound";
+                var select1 = $("#breedId").val();
+                
                 
                 $(".loading").hide()
 
@@ -73,8 +164,9 @@
 
                 $.ajax({
                     
+                    
                         // The URL for the request
-                        url: "https://dog.ceo/api/breed/hound/{lol}/images",
+                        url: "https://dog.ceo/api/breed/"+lol3+"/"+lol2+"/images",
                         //url: "https://erikberg.com/mlb/standings.json",
 
                         // Whether this is a POST or GET request
@@ -82,7 +174,7 @@
 
                         // The type of data we expect back
                         dataType: "json",
-                        data: { "subBreed": $("#subBreed").val() },
+                        //data: { "subBreed": $("#subBreed").val() },
                         
                         
 
@@ -102,13 +194,28 @@
                             $('#results > tbody')
                                 .append($('<tr>')
                                     .append($('<td>')
-                                        .html('<img src='+dog+'>')
+                                        .append($('<img>')
+                                            .attr('src', dog)
+                                            .attr('dog', 'team-logo')
+                                        //.html('<img src='+dog+'>')
                                         
                                     )
+                                    )
+                                )
+                                .append($('<td>')
+                                        .html($("#breed").val())
+                                    )
                                     
+                                    .append($('<td>')
+                                        .html($("#subBreed").val())
+                                        
                                 );
                         }
                     })
+                    
+            
+
+         
                     // Code to run if the request fails; the raw request and
                     // status codes are passed to the function
                     .fail(function(xhr, status, errorThrown) {

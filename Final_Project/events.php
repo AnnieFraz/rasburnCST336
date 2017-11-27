@@ -1,15 +1,26 @@
 <?php
 //Include the event calendar functions file
-include_once('inc/calendar.php');
+include_once('inc\calendar.php');
+</div>
+    <?php include_once('inc/calendar.php');
+    ?>
+    <div id="calendar_div">
+	<?php echo getCalender(); ?>
+</div>
 ?>
 <html>
 <head>
         <meta charset="utf-8"/>
+         <link rel="shortcut icon" href="img/logo.jpg" type="image/png">
+        
         <title>SU Live Music Society</title>
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+        <link type="text/css" rel="stylesheet" href="style.css"/>
+
         
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="jquery.min.js"></script>
         </head>
     <body>
         <header>
@@ -166,17 +177,10 @@ body {font-family: Verdana, sans-serif;}
   <li>30</li>
   <li>31</li>
 </ul>
-    </div>
-    <?php
-    include_once('inc/calendar.php');
-    ?>
-    <div id="calendar_div">
-        <?php
-        echo getCalender();
-        ?>
+    
     </div>
         </body>
-        <footer>
+         <footer>
             <br></br>
             <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>
             <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white; font-size:25px;"><i class="fa fa-facebook"></i></a>

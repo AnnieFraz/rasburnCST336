@@ -3,6 +3,7 @@
 <html>
 <head>
         <meta charset="utf-8"/>
+         <link rel="shortcut icon" href="img/logo.jpg" type="image/png">
         <title>SU Live Music Society</title>
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -34,12 +35,12 @@
                     <input type='submit' name='Submit' value='Submit'/>                </fieldset>
             </form>
             <br></br>
-        </body>
-        <footer>
+         </body>
+         <footer>
             <br></br>
             <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>
             <a href="https://www.facebook.com/StirlingLiveMusic/" style="color:white; font-size:25px;"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en" style="color:white; font-size:25px;"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.instagram.com/stirlinglivemusic/?hl=en"style="color:white; font-size:25px;"><i class="fa fa-instagram"></i></a>
             
             <h3>Live Music Society - University of Stirling</h3>
             <br></br>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+     $(function() {
+                $(".loading").hide()
+
+                // Show spinner
+                $(".loading").show()
+
+                $.ajax({
+                    url:"https://hosting.otterlabs.org/laramiguel/ajax/zip.php?zip_code=93955",
+                    type: "GET",
+                    dataType:"json",
+                })
+                    .done(function(data){
+                        console.log("data: ", data);
+                        console.log(data.city)
+                        //.append($('<h1>')
+                                        html($(data.city))
+                                    
+                    })
+                })
+</script>
+
+    </body>
+</html>
