@@ -26,17 +26,23 @@
         <body>
             <br></br>
             <br></br>
-            <form id='login' action='inc/login.php' method='POST' accept-charset='UTF-8'>
+            <form id='Make Booking' action='inc/login.php' method='POST' accept-charset='UTF-8'>
                 <fieldset>
-                    <legend>Login</legend>
+                    <legend>Make Booking</legend>
                     <input type='hidden' name='submitted' id='submitted' value='1'/>
-                    <label for='username'>Username*:</label>
-                    <input type="text" name='username' id='username' maxLength="50" required/>
+                    <label for='date_selected'>When Do you want to book the room?:</label>
+                    <input type="date" data-date-inline-picker="true" name='date_selected' id='date_selected'  required/>
                     <br></br>
-                    <label for='password'>Password*:</label>
-                    <input type="text" name='password' id='password' maxLength="50" required/>
+                    <label for='time'>What Time:</label>
+                    <input id="time" type="time">
+                    <label for='number'>How Long:</label>
+                    <input type="number" name="quantity" min="1" max="5">
                     <input type='submit' name='Submit' value='Submit'/>                </fieldset>
             </form>
+            <h2>Your Bookings</h2>
+            <?php
+            
+            ?>
             <br></br>
             <center>
             <?php
@@ -49,16 +55,18 @@
       global $conn;
     $sql = "SELECT * 
 FROM  `room_booking`
-WHERE  `date_booked_for` = :date";
+WHERE  `admin_id` = :id
+AND `room_booking_id`=:room_id";
     
 
 $namedParameters = array();
-    $namedParameters[':date'] = $date2;    
+    $namedParameters[':id'] = 10;  
+    $namedParameters[':room_id'] = 10;
     $statement = $conn->prepare($sql);    
     $statement->execute($namedParameters);
     $results = $statement->fetchAll();
     
-    echo "<table border=1><tr><td><strong>DATE</strong></td><td><strong>TIME</strong></td></tr>";
+    echo "<table border=1><tr><td><strong>DATE</strong></td><td><strong>TIME</strong></td><td><strong>CHANGE</strong></td></tr>";
 //foreach ($results as $record) {
     foreach ($results as $record) {
 	
@@ -66,6 +74,13 @@ $namedParameters = array();
 	echo $record['date_booked_for'];
 echo "</td><td>";
 	echo $record['time_booked_for'];
+	echo "</td><td>";
+	echo " <form action='inc/update.php'>";
+          echo "<input type='hidden' name='admin_id' value='".$record['admin_id'] . "'/>";
+          echo "<input type='submit' value='Update'/></form> ";
+	echo "<form action='delete.php'>";
+          echo "<input type='hidden' name='admin_id' value='".$record['admin_id'] . "'/>";
+          echo "<input type='submit' value='Delete' name='deleteForm'/></form>";
 	echo "</td></tr>";
 }
 echo "</table>";

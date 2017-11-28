@@ -22,7 +22,7 @@
          <tr><td><a href="hw3">Homework 3</a></td></tr>
          <tr><td><a href="hw4/index.html">Homework 4 - Javascript</a></td></tr>
          <tr><td><a href="hw4/index.1.html">Homework 4 - JQUERY</a></td></tr>
-         <tr><td><a href="hw5">Homework 5</a></td></tr>
+         <tr><td><a href="hw5/index2.html">Homework 5</a></td></tr>
          
         </table>
     </body>

@@ -52,7 +52,7 @@ legend,label{
     text-align: center;
     font-family: 'Quicksand', sans-serif;
 }
-p{
+p, tr, td{
     font-family: 'Quicksand', sans-serif;
 }
 #music_notes{
@@ -63,9 +63,9 @@ p{
 #content{
     text-align: center;
 }
-.welcomeText{
-    left:100px;
-    right:100px;
+#welcomeText{
+    left:200px;
+    right:200px;
 }
 .banner img{
     max-width: 100%;

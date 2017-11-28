@@ -64,6 +64,7 @@
 	        
             
         </body>
+        
         <footer>
             <br></br>
             <a href="https://twitter.com/SULiveMusic" style="color:white; font-size:25px;"><i class="fa fa-twitter"></i></a>

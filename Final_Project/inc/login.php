@@ -36,6 +36,7 @@ if (empty($record)) {
 } else {
     
    echo "correct credentials";
+   header('Location: makeBooking.php');
    
 }
 

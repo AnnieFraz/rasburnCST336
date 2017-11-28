@@ -38,7 +38,7 @@
 
             </select><br />
             Select a County: <select id = "countyId"></select><br>
-            Desired Username: <input type="text" id="username" ><br>
+            Desired Username: <input type="text" id="usernameId" ><br>
             Password: <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$" required title="Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit."
             <input type="password" placeholder="Confirm Password" id="confirm_password" required>
             
@@ -134,20 +134,20 @@ confirm_password.onkeyup = validatePassword;
             type: "GET",
             url: "checkUsernameAPI.php",
             dataType: "json",
-            data: { "username": $("#username").val()},
+            data: { "username": $("#usernameId").val()},
             success: function(data,status) {
                //alert(data);
                
                if (data['exists'] == "true")  {
-                 $("#checkUsername").html("Username already taken!");
-                 $("#checkUsername").css("color","red");
-                 $("#username").css("background-color","red");
-                 $("#username").focus();
+                // $("#checkUsername").html("Username already taken!");
+               //  $("#checkUsername").css("color","red");
+                 $("#usernameId").css("background-color","red");
+                 $("#usernameId").focus();
                } else {
                    
-                  $("#checkUsername").html("Username available!");
-                  $("#checkUsername").css("color","");
-                  $("#username").css("background-color","green");                    
+                 // $("#checkUsername").html("Username available!");
+                 // $("#checkUsername").css("color","");
+                  $("#usernameId").css("background-color","green");                    
                    
                }
             
@@ -169,7 +169,7 @@ confirm_password.onkeyup = validatePassword;
             
             });
         $("#stateId").change(function(){getCounties(); });
-        $("#username").change( function(){ checkUsername(); });
+        $("#usernameId").change( function(){ checkUsername(); });
         
     } ); //documentReady
     

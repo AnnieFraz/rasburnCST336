@@ -1,0 +1,57 @@
+/*
+        getBreed();
+        function getBreed() {
+        $.ajax({
+        
+        type: "GET",
+        url: "https://dog.ceo/api/breeds/list",
+        dataType: "json",
+        data: { "breed": $("#breed").val()},
+        })
+        .done(function(data) {
+         console.log("lol " + data.message)
+         $("#breedId").html("<option> Select One </option>");
+         for (var i in data.message){
+             console.log("breed "+data[1]);
+             var dog = data[i];
+             console.log("breed " +data.message[i]);
+         $("#breedId").append("<option>"+data.message[i]+"</option>");
+         }
+        var select1 = $("#breedId").val();
+        });
+    }
+    */
+/*
+            $(".button").click(function(){
+                //getDogs();
+                var select1 = $("#breedId").val();
+                getSubBreed(select1);
+                console.log("select" + $("#subBreed").val())
+                console.log("select" + $("#breedId").val())
+                //getSubBreed();
+            });*/
+
+    /*
+    function getDogs(){
+        $.ajax({
+      url: "https://dog.ceo/api/breeds/image/random",
+      dataType: 'json',
+     // data: data,
+      success: callback
+      .append($(".breed-image").html("<img src='" + message + "'>"))
+    });
+                
+                    }
+                    $(".button").click(function(){
+
+                    getDogs();
+                    });
+                    */
+            // Document Ready: 
+            // $(function() {
+
+            // })
+            
+            $.getJSON( "https://dog.ceo/api/breeds/image/random", function( result ) {
+                    $(".breed-image").html("<img src='" + result.message + "'>");
+                });
